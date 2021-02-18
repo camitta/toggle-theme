@@ -7,19 +7,21 @@ import { makeStyles } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import MoreIcon from '@material-ui/icons/MoreVert';
+import CssBaseline from '@material-ui/core/CssBaseline';
 
 const useStyles = makeStyles(theme => ({
 	root: {
-		flexGrow: 1
+		flexGrow: 1,
+		alignItems: 'flex-start'
 	},
 	menuButton: {
 		marginRight: theme.spacing(2)
 	},
 	toolbar: {
 		minHeight: 128,
-		alignItems: 'flex-start',
-		paddingTop: theme.spacing(1),
-		paddingBottom: theme.spacing(2)
+		alignItems: 'flex-start'
+		// paddingTop: theme.spacing(1),
+		// paddingBottom: theme.spacing(2)
 	},
 	title: {
 		flexGrow: 1,
@@ -32,6 +34,7 @@ export default function ProminentAppBar() {
 
 	return (
 		<div className={classes.root}>
+			<CssBaseline />
 			<AppBar position='static'>
 				<Toolbar className={classes.toolbar}>
 					<IconButton edge='start' className={classes.menuButton} color='inherit' aria-label='open drawer'>
