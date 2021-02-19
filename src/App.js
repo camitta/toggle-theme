@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import logo from './logo.svg';
+
+// import logo from './logo.svg';
 import './App.css';
 import AppBar from './components/AppBar';
-import { StyledButton } from './components/StyledButton';
+import ToggleTheme from './components/ToggleTheme';
 import Link from '@material-ui/core/Link';
+import { CustomThemeContext } from './components/CustomThemeProvider';
+import CustomThemeProvider from './components/CustomThemeProvider';
 
 function Copyright() {
 	return (
@@ -45,30 +48,39 @@ const useStyles = makeStyles(theme => ({
 
 export default function App() {
 	const classes = useStyles();
-	return (
-		<div className={classes.root}>
-			<Container className={classes.main} maxWidth='xl'>
-				<div>
-					<AppBar />
-				</div>
-				<div>
-					<Typography variant='h2' component='h1' gutterBottom>
-						Sticky footer
-					</Typography>
-					<Typography variant='h5' component='h2' gutterBottom>
-						{'Pin a footer to the bottom of the viewport.'}
-						{'The footer will move as the main element of the page grows.'}
-					</Typography>
-					<Typography variant='body1'>Sticky footer placeholder.</Typography>
-				</div>
-			</Container>
+	const { currentTheme, setTheme } = useContext(CustomThemeContext);
 
-			<footer className={classes.footer}>
-				<Container maxWidth='sm'>
-					<Typography variant='body1'>My sticky footer can be found here.</Typography>
-					<Copyright />
+	const handleThemeChange = (event, newTheme) => {
+		setTheme(newTheme);
+	};
+
+	return (
+		<CustomThemeProvider>
+			<div className={classes.root}>
+				<Container className={classes.main} maxWidth='xl'>
+					<div>
+						<AppBar />
+					</div>
+					<div>
+						<Typography variant='h2' component='h1' gutterBottom>
+							Sticky footer
+						</Typography>
+						<Typography variant='h5' component='h2' gutterBottom>
+							{'Pin a footer to the bottom of the viewport.'}
+							{'The footer will move as the main element of the page grows.'}
+						</Typography>
+						<ToggleTheme />
+						<Typography variant='body1'>Sticky footer placeholder.</Typography>
+					</div>
 				</Container>
-			</footer>
-		</div>
+
+				<footer className={classes.footer}>
+					<Container maxWidth='sm'>
+						<Typography variant='body1'>My sticky footer can be found here.</Typography>
+						<Copyright />
+					</Container>
+				</footer>
+			</div>
+		</CustomThemeProvider>
 	);
 }
