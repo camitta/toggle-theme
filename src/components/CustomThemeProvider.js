@@ -4,7 +4,7 @@ import getTheme from '../themes';
 
 export const CustomThemeContext = React.createContext({
 	currentTheme: 'normal',
-	setTheme: 'normal'
+	setTheme: null
 });
 
 const CustomThemeProvider = props => {

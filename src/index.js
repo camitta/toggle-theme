@@ -3,12 +3,12 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import CssBaseline from '@material-ui/core/CssBaseline';
-
+import CustomThemeProvider from './components/CustomThemeProvider';
 ReactDOM.render(
-	<React.StrictMode>
+	<CustomThemeProvider>
 		<CssBaseline />
 		<App />
-	</React.StrictMode>,
+	</CustomThemeProvider>,
 	document.getElementById('root')
 );
 

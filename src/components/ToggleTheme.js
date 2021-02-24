@@ -1,8 +1,15 @@
 import React, { useContext } from 'react';
-import ToggleButton from '@material-ui/core/Button';
+import { ToggleButtonGroup } from '@material-ui/lab';
+import { ToggleButton } from '@material-ui/lab';
 import CheckIcon from '@material-ui/icons/Check';
 import { makeStyles } from '@material-ui/core/styles';
 import { CustomThemeContext } from './CustomThemeProvider';
+
+// const { currentTheme, setTheme } = useContext(CustomThemeContext);
+
+// const handleThemeChange = (event, newTheme) => {
+// 	setTheme(newTheme);
+// };
 
 const useStyles = makeStyles(theme => ({
 	root: {
@@ -28,9 +35,20 @@ export default function ThemeToggle() {
 			setTheme('normal');
 		}
 	};
+
 	return (
-		<ToggleButton className={classes.root} value={currentTheme} exclusive size='small' onChange={handleThemeChange}>
-			<CheckIcon />
-		</ToggleButton>
+		<ToggleButtonGroup
+			className={classes.root}
+			value={currentTheme}
+			exclusive
+			size='small'
+			onChange={handleThemeChange}>
+			<ToggleButton value='pastelCandy'>
+				<CheckIcon />
+			</ToggleButton>
+			<ToggleButton value='fluor'>
+				<CheckIcon />
+			</ToggleButton>
+		</ToggleButtonGroup>
 	);
 }
