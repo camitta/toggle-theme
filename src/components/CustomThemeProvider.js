@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { createContext, useState } from 'react';
 import { ThemeProvider } from '@material-ui/core/styles';
 import getTheme from '../themes';
 
-export const CustomThemeContext = React.createContext({
+export const CustomThemeContext = createContext({
 	currentTheme: 'normal',
 	setTheme: null
 });

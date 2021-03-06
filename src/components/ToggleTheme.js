@@ -8,13 +8,12 @@ import StarIcon from '@material-ui/icons/Star';
 const useStyles = makeStyles(theme => ({
 	root: {
 		height: 40,
-		padding: '1em',
 		margin: '10px'
 	},
 	button: {
 		color: theme.palette.primary.contrastText,
-		paddingTop: '1.25em',
-		paddingBottom: '1.25em'
+		paddingTop: '1em',
+		paddingBottom: '1em'
 	}
 }));
 

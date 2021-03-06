@@ -4,10 +4,9 @@ import { createMuiTheme } from '@material-ui/core/styles';
 const normal = createMuiTheme({
 	palette: {
 		primary: {
-			main: '#000000',
+			main: '#616a70',
 			contrastText: '#ffffff'
 		},
-
 		background: {
 			default: '#ffffff'
 		},

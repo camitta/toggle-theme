@@ -20,14 +20,8 @@ const useStyles = makeStyles(theme => ({
 		padding: theme.spacing(0, 0),
 		justifyContent: 'space-between'
 	},
-	body: {
-		marginTop: theme.spacing(0),
-		marginBottom: theme.spacing(2),
-		padding: theme.spacing(0, 0),
-		justifyContent: 'space-between'
-	},
 	footer: {
-		padding: theme.spacing(3, 2),
+		padding: theme.spacing(2, 2),
 		marginTop: 'auto',
 		backgroundColor: theme.palette.primary.main,
 		color: theme.palette.primary.contrastText
@@ -42,7 +36,7 @@ export default function App() {
 
 	return (
 		<Container className={classes.root}>
-			<Container className={classes.main} maxWidth='xl'>
+			<Container className={classes.main}>
 				<AppBar />
 				<Container>
 					<Typography variant='h2' component='h1' gutterBottom>
@@ -53,11 +47,9 @@ export default function App() {
 					</Typography>
 				</Container>
 			</Container>
-			<footer>
-				<Container className={classes.footer}>
-					<ToggleTheme />
-				</Container>
-			</footer>
+			<Container className={classes.footer}>
+				<ToggleTheme />
+			</Container>
 		</Container>
 	);
 }
