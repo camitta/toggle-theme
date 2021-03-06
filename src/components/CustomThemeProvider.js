@@ -13,7 +13,7 @@ const CustomThemeProvider = props => {
 	// Get current theme from localStorage
 	const currentTheme = localStorage.getItem('appTheme') || 'normal';
 
-	// State to hold selected theme name
+	// State to hold selected theme
 	const [ themeName, _setThemeName ] = useState(currentTheme);
 
 	// Retrieve theme object by theme name

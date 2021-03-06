@@ -1,10 +1,7 @@
-import React, { useContext } from 'react';
-import CssBaseline from '@material-ui/core/CssBaseline';
+import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-
-import './App.css';
 import AppBar from './components/AppBar';
 import ToggleTheme from './components/ToggleTheme';
 
@@ -20,13 +17,20 @@ const useStyles = makeStyles(theme => ({
 	main: {
 		marginTop: theme.spacing(0),
 		marginBottom: theme.spacing(2),
-		padding: '0px',
+		padding: theme.spacing(0, 0),
+		justifyContent: 'space-between'
+	},
+	body: {
+		marginTop: theme.spacing(0),
+		marginBottom: theme.spacing(2),
+		padding: theme.spacing(0, 0),
 		justifyContent: 'space-between'
 	},
 	footer: {
 		padding: theme.spacing(3, 2),
 		marginTop: 'auto',
-		backgroundColor: theme.palette.type === 'light' ? theme.palette.grey[200] : theme.palette.grey[800]
+		backgroundColor: theme.palette.primary.main,
+		color: theme.palette.primary.contrastText
 	},
 	header: {
 		paddingBottom: '2px'
@@ -39,9 +43,7 @@ export default function App() {
 	return (
 		<Container className={classes.root}>
 			<Container className={classes.main} maxWidth='xl'>
-				<div>
-					<AppBar />
-				</div>
+				<AppBar />
 				<Container>
 					<Typography variant='h2' component='h1' gutterBottom>
 						Toggle Theme
@@ -51,8 +53,8 @@ export default function App() {
 					</Typography>
 				</Container>
 			</Container>
-			<footer className={classes.footer}>
-				<Container>
+			<footer>
+				<Container className={classes.footer}>
 					<ToggleTheme />
 				</Container>
 			</footer>

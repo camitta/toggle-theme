@@ -1,25 +1,20 @@
 import React, { useContext } from 'react';
-import { ToggleButtonGroup } from '@material-ui/lab';
-import { ToggleButton } from '@material-ui/lab';
-import CheckIcon from '@material-ui/icons/Check';
+import { ToggleButton, ToggleButtonGroup } from '@material-ui/lab';
 import { makeStyles } from '@material-ui/core/styles';
 import { CustomThemeContext } from './CustomThemeProvider';
-
-// const { currentTheme, setTheme } = useContext(CustomThemeContext);
-
-// const handleThemeChange = (event, newTheme) => {
-// 	setTheme(newTheme);
-// };
+import PaletteIcon from '@material-ui/icons/Palette';
+import StarIcon from '@material-ui/icons/Star';
 
 const useStyles = makeStyles(theme => ({
 	root: {
-		root: {
-			borderRadius: 1,
-			height: 40,
-			padding: '1em',
-			margin: '10px',
-			boxShadow: '0px 3px'
-		}
+		height: 40,
+		padding: '1em',
+		margin: '10px'
+	},
+	button: {
+		color: theme.palette.primary.contrastText,
+		paddingTop: '1.25em',
+		paddingBottom: '1.25em'
 	}
 }));
 
@@ -43,11 +38,11 @@ export default function ThemeToggle() {
 			exclusive
 			size='small'
 			onChange={handleThemeChange}>
-			<ToggleButton value='pastelCandy'>
-				<CheckIcon />
+			<ToggleButton className={classes.button} value='pastelCandy'>
+				<PaletteIcon />
 			</ToggleButton>
-			<ToggleButton value='fluor'>
-				<CheckIcon />
+			<ToggleButton className={classes.button} value='fluor'>
+				<StarIcon />
 			</ToggleButton>
 		</ToggleButtonGroup>
 	);
